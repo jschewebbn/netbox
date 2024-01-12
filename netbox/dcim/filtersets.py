@@ -1586,7 +1586,7 @@ class FrontPortFilterSet(
         field_name='pk',
         label=_('Virtual Chassis Front Ports for Device (ID)')
     )
-    
+
     type = django_filters.MultipleChoiceFilter(
         choices=PortTypeChoices,
         null_value=None
@@ -1596,7 +1596,6 @@ class FrontPortFilterSet(
         model = FrontPort
         fields = ['id', 'name', 'label', 'type', 'color', 'description', 'cable_end']
 
-
     def filter_virtual_chassis_member(self, queryset, name, value):
         try:
             vc_front_port_ids = []
@@ -1605,7 +1604,7 @@ class FrontPortFilterSet(
             return queryset.filter(pk__in=vc_front_port_ids)
         except Device.DoesNotExist:
             return queryset.none()
-        
+
 
 class RearPortFilterSet(
     ModularDeviceComponentFilterSet,
@@ -1631,7 +1630,6 @@ class RearPortFilterSet(
     class Meta:
         model = RearPort
         fields = ['id', 'name', 'label', 'type', 'color', 'positions', 'description', 'cable_end']
-
 
     def filter_virtual_chassis_member(self, queryset, name, value):
         try:

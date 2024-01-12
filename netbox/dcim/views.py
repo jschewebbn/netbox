@@ -1953,7 +1953,7 @@ class DeviceFrontPortsView(DeviceComponentsView):
 
     def get_children(self, request, parent):
         return parent.vc_front_ports().restrict(request.user, 'view')
-    
+
 
 @register_model_view(Device, 'rearports', path='rear-ports')
 class DeviceRearPortsView(DeviceComponentsView):
